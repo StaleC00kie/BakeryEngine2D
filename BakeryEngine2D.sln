@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34714.143
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BakeryEngine", "BakeryEngine\BakeryEngine.csproj", "{4DE25081-D6AA-487E-976B-91DED363C09B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BakeryEditor", "BakeryEditor\BakeryEditor.csproj", "{3561D4D6-5C9F-4A05-B4B0-C1CF99510F02}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4DE25081-D6AA-487E-976B-91DED363C09B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DE25081-D6AA-487E-976B-91DED363C09B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DE25081-D6AA-487E-976B-91DED363C09B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DE25081-D6AA-487E-976B-91DED363C09B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3561D4D6-5C9F-4A05-B4B0-C1CF99510F02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3561D4D6-5C9F-4A05-B4B0-C1CF99510F02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3561D4D6-5C9F-4A05-B4B0-C1CF99510F02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3561D4D6-5C9F-4A05-B4B0-C1CF99510F02}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4E579A0A-2321-47C5-A19E-D22EE5A43F34}
+	EndGlobalSection
+EndGlobal
