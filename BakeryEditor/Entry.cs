@@ -6,7 +6,7 @@ namespace BakeryEditor
     {
         static void Main(string[] args)
         {
-            using (MainWindow mainWindow = new MainWindow(800, 600, "Bakery Editor"))
+            using (Window mainWindow = new Window(800, 600, "Bakery Editor"))
             {
                 mainWindow.Run();
             }

@@ -33,7 +33,7 @@ namespace BakeryEngine.Core
             return objects;
         }
 
-        public static void DoAwake<T>(params object[] constructorArgs) where T : class
+        public static void InvokeMethod<T>(string methodName, params object[] constructorArgs) where T : class
         {
             List<T> objects = new List<T>();
 
@@ -44,7 +44,7 @@ namespace BakeryEngine.Core
 
             foreach (T obj in objects)
             {
-                obj.GetType().GetMethod("Awake").Invoke(obj, null);
+                obj.GetType()?.GetMethod(methodName)?.Invoke(obj, null);
             }
         }
     }

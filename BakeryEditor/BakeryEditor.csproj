@@ -12,8 +12,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="ImGui.NET.Docking" Version="1.75.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Core\" />
-    <Folder Include="Graphics\" />
   </ItemGroup>
 
 </Project>
