@@ -4,31 +4,89 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BakeryEngine.Core;
-using OpenTK.Windowing.Common;
-using OpenTK.Windowing.Desktop;
+using Veldrid;
+using Veldrid.Sdl2;
+using Veldrid.StartupUtilities;
+using Vulkan.Xlib;
 
 namespace BakeryEngine.Graphics
 {
-    public abstract class Window : GameWindow
+    /// <summary>
+    /// A wrapper for a SDL2 Window while also enables other functionality such as
+    /// </summary>
+    public abstract class Window
     {
-        public Window(int width, int height, string title) : base(GameWindowSettings.Default, new NativeWindowSettings() { ClientSize = (width, height), Title = title }) 
+        public Sdl2Window Sdl2Window { get; private set; }
+        public GraphicsDevice GraphicsDevice { get; private set; }
+
+        public Window(int posX, int posY, int width, int height, string title, GraphicsAPI graphicsAPI = GraphicsAPI.OpenGL3)
         {
+            WindowCreateInfo windowInfo = new WindowCreateInfo()
+            {
+                X = posX,
+                Y = posY,
+                WindowWidth = width,
+                WindowHeight = height,
+                WindowTitle = title,
+            };
+
+            InitSDLWindow(ref windowInfo);
+
+
+            GraphicsDeviceOptions options = new GraphicsDeviceOptions
+            {
+                PreferStandardClipSpaceYDirection = true,
+                PreferDepthRangeZeroToOne = true
+            };
+
+
+            switch (graphicsAPI)
+            {
+                case GraphicsAPI.Unknown:
+                    break;
+                case GraphicsAPI.OpenGL3:
+
+                    options.PreferStandardClipSpaceYDirection = true;
+                    options.PreferDepthRangeZeroToOne = false;
+
+                    break;
+                case GraphicsAPI.Vulkan:
+
+                    options.PreferStandardClipSpaceYDirection = false;
+                    options.PreferDepthRangeZeroToOne = true;
+                    break;
+                case GraphicsAPI.D3D11:
+
+                    options.PreferStandardClipSpaceYDirection = true;
+                    options.PreferDepthRangeZeroToOne = true;
+
+                    break;
+                default:
+                    break;
+            }
+
+
+            GraphicsDevice = VeldridStartup.CreateGraphicsDevice(Sdl2Window, options);
+
             EngineReflection.InvokeMethod<EngineObject>("Construct");
 
             EngineReflection.InvokeMethod<EngineObject>("Awake");
         }
 
-        protected override void OnRenderFrame(FrameEventArgs args)
+        private void InitSDLWindow(ref WindowCreateInfo windowInfo)
         {
-            base.OnRenderFrame(args);
+            Sdl2Window = VeldridStartup.CreateWindow(ref windowInfo);
+        }
+
+        protected void RenderFrame()
+        {
+
 
             EngineReflection.InvokeMethod<EngineObject>("Draw");
         }
 
-        protected override void OnUpdateFrame(FrameEventArgs e)
+        protected void UpdateFrame()
         {
-            base.OnUpdateFrame(e);
-
             EngineReflection.InvokeMethod<EngineObject>("Update");
         }
     }
