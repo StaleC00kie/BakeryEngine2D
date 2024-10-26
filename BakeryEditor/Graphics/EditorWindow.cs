@@ -9,7 +9,7 @@ namespace BakeryEditor.Graphics
 {
     internal abstract class EditorWindow : BakeryEngine.Graphics.Window
     {
-        public EditorWindow(EditorWindowConfiguration editorWindowConfiguration) : base(editorWindowConfiguration.Resolution.X, editorWindowConfiguration.Resolution.Y, editorWindowConfiguration.Title)
+        public EditorWindow(EditorWindowConfiguration configuration) : base(configuration.WindowPosition.X, configuration.WindowPosition.Y, configuration.Size.X, configuration.Size.Y, configuration.Title, configuration.GraphicsAPI)
         {
 
         }

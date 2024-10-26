@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace BakeryEditor.Graphics
 {
-    //internal class Viewport : EditorWindow
-    //{
-    //    public Viewport(EditorWindowConfiguration editorWindowConfiguration) : base(editorWindowConfiguration)
-    //    {
+    internal class Viewport : EditorWindow
+    {
+        public Viewport(EditorWindowConfiguration editorWindowConfiguration) : base(editorWindowConfiguration)
+        {
 
-    //    }
-    //}
+        }
+    }
 }
