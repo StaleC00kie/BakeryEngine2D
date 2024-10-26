@@ -9,8 +9,6 @@ namespace BakeryEditor
         static void Main(string[] args)
         {
             Editor editor = new Editor();
-
-            editor.Run();
         }
     }
 }

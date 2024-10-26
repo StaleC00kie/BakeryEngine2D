@@ -1,7 +1,10 @@
 ﻿namespace BakeryEngine
 {
-    public abstract class Application
+    public abstract class Application : IDisposable
     {
+        public void Dispose()
+        {
 
+        }
     }
 }
